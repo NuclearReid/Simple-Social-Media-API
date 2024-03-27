@@ -1,0 +1,21 @@
+{
+    "name": "social-media-api",
+    "version": "1.0.1",
+    "description": "A social media api",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+      "start": "node index",
+      "dev": "nodemon index",
+      "seed": "node utils/seed"
+    },
+    "dependencies": {
+      "express": "^4.17.1",
+      "mongoose": "^7.0.2",
+      "dotenv": "^8.2.0"
+    },
+    "devDependencies": {
+      "nodemon": "^2.0.9"
+    }
+  }
+  
