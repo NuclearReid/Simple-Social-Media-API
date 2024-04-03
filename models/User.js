@@ -15,6 +15,7 @@ const userSchema = new mongoose.Schema(
             required: true,
             trim: true,
             lowercase: true,
+            // regex to make sure the user sends an email
             match: [/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, 'Please enter a valid email address'],
         },
         thoughts: [

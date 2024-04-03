@@ -33,6 +33,7 @@ module.exports = {
     },
     async updateUser(req, res){
         try {
+            // pretty simple, gets the user id from the params, updates the data with the req.body
             const user = await Users.findByIdAndUpdate(req.params.userId, req.body)
             .select('-__v');
             if(!user){
@@ -60,6 +61,7 @@ module.exports = {
     // friend list management
     async addFriend(req, res){
         try {
+            // looks at the two params sent (user and friend) then adds the friendId to the user's 'friends' array
             const user = await Users.findByIdAndUpdate(
                 req.params.userId, 
                 {$addToSet: {friends: req.params.friendId}},
@@ -75,6 +77,7 @@ module.exports = {
     },
     async removeFriend(req, res){
         try {
+            // same as above but $pull from the array instead of $addToSet
             const user = await Users.findByIdAndUpdate(
                 req.params.userId,
                 {$pull: {friends: req.params.friendId}},

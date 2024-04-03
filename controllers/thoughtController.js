@@ -5,7 +5,7 @@ module.exports = {
     
     async createThought(req, res){
         try {
-
+            // deconstructs the req.body
             const { thoughtText, username, userId} = req.body;
 
             const user = await Users.findById(userId);
@@ -13,8 +13,11 @@ module.exports = {
             if (!user) {
                 return res.status(404).json({ message: 'User not found' });
             }
+            // sends the data to Thoughts 
             const thought = await Thoughts.create({thoughtText, username, userId});
+            // pushes the new thought to the user's 'thoughts' array
             user.thoughts.push(thought._id);
+            // saves/updates the user
             await user.save()
 
             res.status(200).json(thought);

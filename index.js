@@ -14,6 +14,7 @@ const activity = cwd.includes('./social-media-api')
   ? cwd.split('social-media-api')[1]
   : cwd;
 
+// the basic middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(routes);

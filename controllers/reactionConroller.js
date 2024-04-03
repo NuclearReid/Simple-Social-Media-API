@@ -11,6 +11,7 @@ module.exports = {
                     $push: {
                         reactions: {
                             reactionBody: req.body.reactionBody,
+                            // what I don't like about this is having to send the api the username but without a login, it makes sense.
                             username: req.body.username
                         }
                     }
