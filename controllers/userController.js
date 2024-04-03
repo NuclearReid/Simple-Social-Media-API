@@ -50,11 +50,14 @@ module.exports = {
             if(!user){
                 return res.status(404).json({message: "no user found"});
             }
+            // In here, include deleting the user's thoughts too.
             res.status(200).json(user);
         } catch (error) {
             res.status(500).json(error);
         }
     },
+
+    // friend list management
     async addFriend(req, res){
         try {
             const user = await Users.findByIdAndUpdate(
@@ -70,5 +73,20 @@ module.exports = {
             res.status(200).json(error);
         }
     },
-    
+    async removeFriend(req, res){
+        try {
+            const user = await Users.findByIdAndUpdate(
+                req.params.userId,
+                {$pull: {friends: req.params.friendId}},
+                {new: true},
+            );
+            if(!user){
+                return res.status(404).json({message: 'no user found'});
+            }
+            res.status(200).json({message: 'Friend removed from friend list'})
+            
+        } catch (error) {
+            res.status(500).json(error);
+        }
+    },    
 }

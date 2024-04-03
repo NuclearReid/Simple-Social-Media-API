@@ -2,6 +2,7 @@ const { Users, Thoughts} = require('../models');
 
 module.exports = {
     
+    
     async createThought(req, res){
         try {
 
