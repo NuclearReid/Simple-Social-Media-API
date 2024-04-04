@@ -9,7 +9,7 @@
   [A link to the api in use](https://share.icloud.com/photos/0bdeM2rTXU6MrcBorHyeM0Rdg)
   From the link, download the video for better resolution
 
-  
+
   
   ## Table of Contents
   
@@ -34,7 +34,7 @@
   
   ## Credits
   
-  n/a
+  I used Microsoft Copilot for some help with this project
   
   ## License
   
